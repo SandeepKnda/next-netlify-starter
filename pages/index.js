@@ -31,7 +31,7 @@ export default function Home() {
 
       {/* NAVBAR */}
       <nav className="nav">
-        <h2>Sandeep Kumar K</h2>
+        <h2>Sandeep Kumar Konda</h2>
         <div>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
