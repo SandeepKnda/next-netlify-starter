@@ -27,7 +27,7 @@ export default function Portfolio() {
           </p>
           <div className="flex justify-center gap-4 mt-6">
             <Button asChild>
-              <a href="/resume.pdf" download>Download Resume</a>
+              <a href="/SandeepKondaResume.pdf" download>Download Resume</a>
             </Button>
             <Button variant="secondary" asChild>
               <a href="https://www.linkedin.com/in/sandeep-kumar-knda/" target="_blank">LinkedIn</a>
