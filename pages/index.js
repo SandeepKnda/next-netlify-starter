@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
-        <title>Sandeep Kumar K | Senior Data Engineer</title>
+        <title>Sandeep Kumar Konda | Senior Data Engineer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -38,7 +38,7 @@ export default function Home() {
 
       {/* HERO */}
       <section id="about" className="hero animate">
-        <h1>Sandeep Kumar K</h1>
+        <h1>Sandeep Kumar Konda</h1>
         <h3>Senior Data Engineer</h3>
 
         <p className="summary">
