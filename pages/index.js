@@ -1,144 +1,235 @@
-import { useState } from "react";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 
-/* ---------- SVG ICONS (NO LIBRARIES) ---------- */
-const DatabaseIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <ellipse cx="12" cy="5" rx="9" ry="3" />
-    <path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5" />
-  </svg>
-);
-
-const CloudIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M20 17.5a4.5 4.5 0 0 0-1-8.9A6 6 0 0 0 6 9a4 4 0 0 0 0 8h14z" />
-  </svg>
-);
-
-const ChartIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <line x1="12" y1="20" x2="12" y2="10" />
-    <line x1="18" y1="20" x2="18" y2="4" />
-    <line x1="6" y1="20" x2="6" y2="16" />
-  </svg>
-);
-
-const BriefcaseIcon = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <rect x="2" y="7" width="20" height="14" rx="2" />
-    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-  </svg>
-);
-
-const MailIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M4 4h16v16H4z" />
-    <polyline points="22,6 12,13 2,6" />
-  </svg>
-);
-
-/* ---------- PAGE ---------- */
 export default function Home() {
-  const [dark, setDark] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Scroll animations
+  useEffect(() => {
+    const sections = document.querySelectorAll(".animate");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("show");
+        });
+      },
+      { threshold: 0.15 }
+    );
+    sections.forEach(section => observer.observe(section));
+  }, []);
 
   return (
-    <div className={dark ? "dark" : ""}>
-      <main className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+    <div className={darkMode ? "dark" : ""}>
+      <Head>
+        <title>Sandeep Kumar K | Senior Data Engineer</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        {/* HEADER */}
-        <header className="flex justify-between items-center px-8 py-6 max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold">Sandeep Kumar K</h1>
-          <button
-            onClick={() => setDark(!dark)}
-            className="px-4 py-2 rounded-lg border dark:border-gray-700"
+      {/* NAVBAR */}
+      <nav className="nav">
+        <h2>Sandeep Kumar K</h2>
+        <div>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <button onClick={() => setDarkMode(!darkMode)}>🌗</button>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section id="about" className="hero animate">
+        <h1>Sandeep Kumar K</h1>
+        <h3>Senior Data Engineer</h3>
+
+        <p className="summary">
+          Senior Data Engineer with <strong>8+ years of experience</strong> designing,
+          building, and optimizing enterprise-scale data platforms across
+          finance, healthcare, and public-sector domains.
+        </p>
+
+        <p className="summary">
+          Specialized in <strong>Azure Data Factory, Snowflake, SQL Server,
+          Databricks, and Power BI</strong>, with a strong focus on scalable ETL
+          pipelines, cloud data warehousing, CI/CD automation, and
+          analytics-ready data models that support high-impact business decisions.
+        </p>
+
+        <div className="buttons">
+          <a className="btn" href="SandeepKondaResume.pdf" download>
+            📄 Download Resume
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sandeep-kumar-knda/"
+            target="_blank"
+            className="btn outline"
           >
-            {dark ? "☀️ Light" : "🌙 Dark"}
-          </button>
-        </header>
+            🔗 LinkedIn
+          </a>
+        </div>
+      </section>
 
-        {/* HERO */}
-        <section className="text-center py-16 px-6 max-w-4xl mx-auto">
-          <h2 className="text-5xl font-extrabold mb-4">Senior Data Engineer</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Data Engineer with 8+ years of experience designing scalable cloud
-            data pipelines, ETL frameworks, and business intelligence solutions
-            across finance, healthcare, and public-sector domains.
-          </p>
+      {/* SKILLS */}
+      <section id="skills" className="animate">
+        <h2>Core Expertise</h2>
+        <ul className="grid">
+          <li>Azure Data Factory, Synapse, Databricks</li>
+          <li>Snowflake, SQL Server, Oracle, MySQL</li>
+          <li>ETL / ELT Pipeline Design</li>
+          <li>Power BI, Tableau, SSRS</li>
+          <li>Python, T-SQL, Data Modeling</li>
+          <li>CI/CD – Azure DevOps, Git</li>
+        </ul>
+      </section>
 
-          <div className="flex justify-center gap-4 mt-8">
-            <a
-              href="SandeepKondaResume.pdf"
-              download
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium"
-            >
-              Download Resume
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sandeep-kumar-knda/"
-              target="_blank"
-              className="px-6 py-3 border rounded-lg font-medium"
-            >
-              LinkedIn
-            </a>
+      {/* PROJECTS */}
+      <section id="projects" className="animate">
+        <h2>Key Projects</h2>
+        <div className="cards">
+          <div className="card">
+            <h3>🏛️ CalSTRS – Cloud Data Platform</h3>
+            <p>
+              Designed and implemented end-to-end Azure data pipelines using
+              ADF, Synapse, and Snowflake to support analytics and reporting
+              at enterprise scale.
+            </p>
           </div>
-        </section>
 
-        {/* SKILLS */}
-        <section className="max-w-6xl mx-auto px-6 py-14">
-          <h3 className="text-3xl font-bold mb-8">Core Expertise</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow">
-              <DatabaseIcon />
-              <p className="mt-3">SQL Server, Oracle, MySQL, Snowflake</p>
-            </div>
-            <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow">
-              <CloudIcon />
-              <p className="mt-3">Azure Data Factory, Synapse, Databricks</p>
-            </div>
-            <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow">
-              <ChartIcon />
-              <p className="mt-3">Power BI, Tableau, SSRS</p>
-            </div>
+          <div className="card">
+            <h3>🏥 BCBS Arizona – Healthcare Analytics</h3>
+            <p>
+              Built secure, CI/CD-enabled ETL pipelines and near-real-time
+              Snowflake models powering Power BI dashboards for healthcare insights.
+            </p>
           </div>
-        </section>
 
-        {/* PROJECTS */}
-        <section className="max-w-6xl mx-auto px-6 py-14">
-          <h3 className="text-3xl font-bold mb-8">Projects</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow">
-              <BriefcaseIcon />
-              <p className="mt-3">Cloud Data Platform – CalSTRS</p>
-            </div>
-            <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow">
-              <BriefcaseIcon />
-              <p className="mt-3">Healthcare Analytics – BCBS Arizona</p>
-            </div>
-            <div className="p-6 rounded-xl bg-white dark:bg-gray-800 shadow">
-              <BriefcaseIcon />
-              <p className="mt-3">Investment Reporting – American Century</p>
-            </div>
+          <div className="card">
+            <h3>💼 American Century – Investment Reporting</h3>
+            <p>
+              Developed optimized SQL datasets and Tableau reports supporting
+              recurring and ad-hoc investment analytics.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CONTACT */}
-        <section className="max-w-xl mx-auto px-6 py-16">
-          <h3 className="text-3xl font-bold text-center mb-8">Contact Me</h3>
-          <form className="space-y-4">
-            <input className="w-full p-3 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800" placeholder="Name" />
-            <input className="w-full p-3 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800" placeholder="Email" />
-            <textarea className="w-full p-3 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800" rows="4" placeholder="Message" />
-            <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium">
-              <MailIcon /> Submit
-            </button>
-          </form>
-        </section>
+      {/* FOOTER */}
+      <footer>
+        © 2026 Sandeep Kumar K. All rights reserved.
+      </footer>
 
-        {/* FOOTER */}
-        <footer className="text-center py-6 text-sm text-gray-500">
-          © 2026 Copyright, all rights are reserved
-        </footer>
+      {/* STYLES */}
+      <style jsx>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        body {
+          margin: 0;
+          font-family: system-ui;
+        }
+        .dark {
+          background: #0f172a;
+          color: #fff;
+        }
+        .nav {
+          display: flex;
+          justify-content: space-between;
+          padding: 1rem 2rem;
+          position: sticky;
+          top: 0;
+          background: inherit;
+          z-index: 10;
+        }
+        .nav a {
+          margin-right: 1rem;
+          font-weight: 500;
+        }
+        .hero {
+          padding: 4rem 1rem;
+          text-align: center;
+          max-width: 900px;
+          margin: auto;
+        }
+        h1 {
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
+        }
+        h3 {
+          font-size: 1.4rem;
+          color: #38bdf8;
+          margin-bottom: 1.5rem;
+        }
+        .summary {
+          font-size: 1.05rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+        }
+        .buttons {
+          margin-top: 2rem;
+        }
+        .btn {
+          padding: 0.7rem 1.4rem;
+          background: #0ea5e9;
+          color: white;
+          border-radius: 8px;
+          margin-right: 1rem;
+          display: inline-block;
+        }
+        .outline {
+          background: transparent;
+          border: 2px solid #0ea5e9;
+        }
+        section {
+          padding: 3.5rem 1rem;
+          max-width: 1000px;
+          margin: auto;
+        }
+        h2 {
+          text-align: center;
+          margin-bottom: 2rem;
+          font-size: 2rem;
+        }
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1rem;
+        }
+        .grid li {
+          padding: 1rem;
+          border-radius: 8px;
+          background: rgba(255,255,255,0.05);
+        }
+        .cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 1.5rem;
+        }
+        .card {
+          padding: 1.5rem;
+          border-radius: 12px;
+          background: rgba(255,255,255,0.05);
+          transition: transform 0.3s ease;
+        }
+        .card:hover {
+          transform: translateY(-6px);
+        }
+        footer {
+          text-align: center;
+          padding: 1.5rem;
+          font-size: 0.9rem;
+          opacity: 0.8;
+        }
 
-      </main>
+        /* Animations */
+        .animate {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: 0.8s ease;
+        }
+        .animate.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </div>
   );
 }
