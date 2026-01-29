@@ -54,19 +54,21 @@ export default function Home() {
           analytics-ready data models that support high-impact business decisions.
         </p>
 
-        <div className="buttons">
-          <a className="btn" href="SandeepKondaResume.pdf" download>
-            📄 Download Resume
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sandeep-kumar-knda/"
-            target="_blank"
-            className="btn outline"
-          >
-            🔗 LinkedIn
-          </a>
-        </div>
-      </section>
+      <div className="buttons">
+  <a className="btn primary" href="SandeepKondaResume.pdf" download>
+    📄 Download Resume
+  </a>
+
+  <a
+    className="btn linkedin"
+    href="https://www.linkedin.com/in/sandeep-kumar-knda/"
+    target="_blank"
+    rel="noreferrer"
+  >
+    in LinkedIn
+  </a>
+</div>
+
 
       {/* SKILLS */}
       <section id="skills" className="animate">
@@ -119,6 +121,50 @@ export default function Home() {
 
       {/* STYLES */}
       <style jsx>{`
+      /* DATA ENGINEER THEME */
+.hero {
+  background:
+    linear-gradient(180deg, rgba(14,165,233,0.12), transparent),
+    radial-gradient(circle at top, rgba(56,189,248,0.15), transparent);
+}
+
+.dark .hero {
+  background:
+    linear-gradient(180deg, rgba(14,165,233,0.18), transparent),
+    radial-gradient(circle at top, rgba(56,189,248,0.25), transparent);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  box-shadow: 0 10px 30px rgba(14,165,233,0.35);
+}
+
+.btn.linkedin {
+  background: #0a66c2;
+  color: white;
+  box-shadow: 0 8px 25px rgba(10,102,194,0.4);
+}
+
+.btn.linkedin:hover,
+.btn.primary:hover {
+  transform: translateY(-2px);
+}
+
+section h2 {
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card {
+  border: 1px solid rgba(56,189,248,0.2);
+  backdrop-filter: blur(6px);
+}
+
+.grid li {
+  border: 1px solid rgba(56,189,248,0.15);
+}
+
         html {
           scroll-behavior: smooth;
         }
