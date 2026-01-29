@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
-        <title>Sandeep Kumar K | Senior Data Engineer</title>
+        <title>Sandeep Kumar Konda | Senior Data Engineer</title>
         <meta
           name="description"
           content="Senior Data Engineer with 8+ years of experience in Azure, Snowflake, ETL pipelines, and Business Intelligence solutions."
@@ -42,7 +42,7 @@ export default function Home() {
 
       {/* HERO / ABOUT */}
       <section id="about" className="hero animate">
-        <h1>Sandeep Kumar K</h1>
+        <h1>Sandeep Kumar Konda</h1>
         <h3>Senior Data Engineer</h3>
 
         <p className="summary">
@@ -70,7 +70,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
           >
-            in LinkedIn
+            LinkedIn
           </a>
         </div>
       </section>
@@ -121,7 +121,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer>
-        © 2026 Sandeep Kumar K. All rights reserved.
+        © 2026 Sandeep Kumar Konda. All rights reserved.
       </footer>
 
       {/* STYLES */}
